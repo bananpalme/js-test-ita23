@@ -9,7 +9,7 @@
  * const message = generateMessage("Jack", 25); // "Hey Jack, happy 25 birthday!"
  */
 function generateMessage(name, age) {
-
+    return `Hey ${name}, happy ${age} birthday!`
 }
 
 /**
@@ -22,7 +22,11 @@ function generateMessage(name, age) {
  * const title = titleCase("hello world"); // title will be "Hello World"
  */
 function titleCase(sentence) {
-
+    const words = sentence.split(" ")
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].substring(1)
+    }
+    return words.join(" ")
 }
 
 /**
@@ -36,7 +40,11 @@ function titleCase(sentence) {
  * const sum = sumOfRange(1, 4); // sum will be 10
  */
 function sumOfRange(start, end) {
-
+    let sum = 0
+    for (let i = start; i <= end; i++) {
+        sum += i;
+    }
+    return sum
 }
 
 
@@ -51,7 +59,12 @@ function sumOfRange(start, end) {
  * const anotherAcronym = generateAcronym("Federal Bureau Investigation"); // anotherAcronym will be "FBI"
  */
 function generateAcronym(sentence) {
-
+    let words = sentence.split(" ")
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i].replace(/\d+/g, "")
+        words[i] = words[i][0].toUpperCase()
+    }
+    return words.join("")
 }
 
 
@@ -66,5 +79,15 @@ function generateAcronym(sentence) {
  * const anotherCount = countConsonantsWeighted("JavaScript"); // anotherCount will be 9
  */
 function countConsonantsWeighted(str) {
+    let count = 0
+    const vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U", ]
+    let letters = str.split("")
+    for (let i = 0; i < letters.length; i++) {
+        if (vowels.includes(letters[i])) {
 
+        } else {
+            count++
+        }
+    }
+    return count
 }
